@@ -1,21 +1,4 @@
-﻿#include <iostream>
-using namespace std;
-
-// глобальная (дворовой кот)
-
-int main ()
-{
-	setlocale (LC_ALL, "RUS");
-	cout << "Привет мир!" << endl; // функция вывода
-	// cin >> a;
-	
-	// локольная (домашняя)
-
-	/*
-	aaa
-	bbb
-	ccc
-	*/#include <iostream> // подключение библиотеки ввода/вывода
+﻿#include <iostream> // подключение библиотеки ввода/вывода
 using namespace std; // подключение пространства имен
 
 int cat_glob; // глобальная (дворовой кот)
@@ -45,10 +28,5 @@ int main()
 	*/
 
 	return 0; // это значит, что программа хорошо отработала
-}
-
-
-
-	return 0;
 }
 
