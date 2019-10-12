@@ -4,10 +4,9 @@ using namespace std;
 
 // pow(); log(); sqrt();
 
-int main ()
+int main()
 {
-	float y = 0;
-	int a, b, x;
+	float y, a, b, x;
 
 	cout << "a = ";
 	cin >> a;
@@ -18,9 +17,8 @@ int main ()
 	cout << "x = ";
 	cin >> x;
 
-	y = (a + 20 * b) / pow (x, 3) * log(2 * x) - 1 / pow (a - 1, 2);
-
+	y = (10 * a - sqrt(4 * b)) / pow(x - 2, 2) - log(8) / (16 * x) + sqrt(a + b);
 	cout << "y = " << y << endl;
 
-    return 0; 
+	return 0;
 }

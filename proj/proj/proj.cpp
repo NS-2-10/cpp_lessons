@@ -1,32 +1,24 @@
-﻿#include <iostream> // подключение библиотеки ввода/вывода
-using namespace std; // подключение пространства имен
+﻿#include <iostream>
+#include <cmath>
+using namespace std;
 
-int cat_glob; // глобальная (дворовой кот)
+// pow(); log(); sqrt();
 
 int main()
 {
-	setlocale(LC_ALL, "RUS"); // подключение языка
-	cout << "Привет мир!" << endl << "Пока, мир!" << endl; // функция вывода
+	float y, a, b, x;
 
-	// выполнение задания
-	cout << "Вася" << endl << "64" << endl;
-	cout << "\tВася" << endl << "\t64" << endl; // с табулцией
+	cout << "a = ";
+	cin >> a;
 
-	int cat_loc; // локольная (домашний кот)
+	cout << "b = ";
+	cin >> b;
 
-	// функция ввода
-	cin >> cat_loc; // ввод локальной переменной
-	cin >> cat_glob; // ввод глобальной переменной
+	cout << "x = ";
+	cin >> x;
 
-	cout << cat_loc << endl; // вывод локальной переменной
-	cout << cat_glob << endl; // вывод глобальной переменной
+	y = (10 * a - sqrt(4 * b)) / pow(x - 2, 2) - log(8) / (16 * x) + sqrt(a + b);
+	cout << "y = " << y << endl;
 
-	/*
-	это
-	многострочный
-	комментарий
-	*/
-
-	return 0; // это значит, что программа хорошо отработала
+	return 0;
 }
-
