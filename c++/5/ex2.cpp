@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	float y, a, b, x;
+	float y = 0, a = 0, b = 0, x = 0;
 
 	cout << "a = ";
 	cin >> a;
@@ -17,7 +17,7 @@ int main()
 	cout << "x = ";
 	cin >> x;
 
-	y = (10 * a - sqrt(4 * b)) / pow(x - 2, 2) - log(8) / (16 * x) + sqrt(a + b);
+	y = (a - 1) * (b + 1) / (3 * b - x) * (7 * pow(a, 2) - 3 * pow(b, 3)) / (20 * pow(x, 4)) / ((17 * pow(a, 5) * sqrt(b)) / (30 * x));
 	cout << "y = " << y << endl;
 
 	return 0;
