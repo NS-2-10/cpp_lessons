@@ -1,24 +1,60 @@
 ﻿#include <iostream>
-#include <cmath>
 using namespace std;
 
-// pow(); log(); sqrt();
+/*
+   вводим 3 числа, проверяем на четность
+   если да, то выводим.
+   если ни одного - говорим об этом.
+*/
 
 int main()
 {
-	float y = 0, a = 0, b = 0, x = 0;
+	setlocale(LC_ALL, "RUS");
 
-	cout << "a = ";
-	cin >> a;
+	int bim, bom, bam;
 
-	cout << "b = ";
-	cin >> b;
+	cout << "bim = "; cin >> bim;
+	cout << "bom = "; cin >> bom;
+	cout << "bam = "; cin >> bam;
 
-	cout << "x = ";
-	cin >> x;
+	// 1
 
-	y = (a - 1) * (b + 1) / (3 * b - x) * (7 * pow(a, 2) - 3 * pow(b, 3)) / (20 * pow(x, 4)) / ((17 * pow(a, 5) * sqrt(b)) / (30 * x));
-	cout << "y = " << y << endl;
+	if(bim % 2 == 0)
+		cout << "чёт: " << bim << endl;
+
+	if(bom % 2 == 0)
+		cout << "чёт: " << bom << endl;
+
+	if(bam % 2 == 0)
+		cout << "чёт: " << bam << endl;
+
+	if (bim % 2 == 1 && bom % 2 == 1 && bam % 2 == 1)
+		cout << "все нечёт" << endl;
+
+	// 2
+	int n = 0;
+
+	if (bim % 2 == 0)
+	{
+		cout << "чёт: " << bim << endl;
+		n++;
+	}
+
+	if (bom % 2 == 0)
+	{
+		cout << "чёт: " << bom << endl;
+		n++;
+	}
+
+	if (bam % 2 == 0)
+	{
+		cout << "чёт: " << bam << endl;
+		n++;
+	}
+
+	if(n == 0)
+		cout << "все нечёт" << endl;
 
 	return 0;
 }
+
