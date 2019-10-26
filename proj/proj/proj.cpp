@@ -1,60 +1,49 @@
 ﻿#include <iostream>
 using namespace std;
 
-/*
-   вводим 3 числа, проверяем на четность
-   если да, то выводим.
-   если ни одного - говорим об этом.
-*/
+/* вводим 3 числа, проверяем на четность если да, то выводим
+   если ни одного - говорим об этом */
 
 int main()
 {
 	setlocale(LC_ALL, "RUS");
 
-	int bim, bom, bam;
+	int n1, n2, n3;
 
-	cout << "bim = "; cin >> bim;
-	cout << "bom = "; cin >> bom;
-	cout << "bam = "; cin >> bam;
+	cout << "n1 = ";
+	cin >> n1;
 
-	// 1
+	cout << "n2 = ";
+	cin >> n2;
 
-	if(bim % 2 == 0)
-		cout << "чёт: " << bim << endl;
+	cout << "n3 = ";
+	cin >> n3;
 
-	if(bom % 2 == 0)
-		cout << "чёт: " << bom << endl;
+	// #1
+	if(n1 % 2 == 0) cout << n1 << endl;
+	if(n2 % 2 == 0) cout << n2 << endl;
+	if(n3 % 2 == 0) cout << n3 << endl;
+	if (n1 % 2 == 1 && n2 % 2 == 1 && n3 % 2 == 1)
+		cout << "все нечет" << endl;
 
-	if(bam % 2 == 0)
-		cout << "чёт: " << bam << endl;
-
-	if (bim % 2 == 1 && bom % 2 == 1 && bam % 2 == 1)
-		cout << "все нечёт" << endl;
-
-	// 2
+	// #2
 	int n = 0;
-
-	if (bim % 2 == 0)
+	if (n1 % 2 == 0)
 	{
-		cout << "чёт: " << bim << endl;
+		cout << n1 << endl;
 		n++;
 	}
-
-	if (bom % 2 == 0)
+	if (n2 % 2 == 0)
 	{
-		cout << "чёт: " << bom << endl;
+		cout << n2 << endl;
 		n++;
 	}
-
-	if (bam % 2 == 0)
+	if (n3 % 2 == 0)
 	{
-		cout << "чёт: " << bam << endl;
+		cout << n3 << endl;
 		n++;
 	}
-
-	if(n == 0)
-		cout << "все нечёт" << endl;
+	if(n == 0) cout << "все нечет" << endl;
 
 	return 0;
 }
-
