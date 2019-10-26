@@ -1,49 +1,38 @@
 ﻿#include <iostream>
+#include <cmath>
 using namespace std;
 
-/* вводим 3 числа, проверяем на четность если да, то выводим
-   если ни одного - говорим об этом */
+// решаем пример с картинки
+// a*x^2 + b*x + c = 0
 
 int main()
 {
-	setlocale(LC_ALL, "RUS");
+	float a, b, c, d = 0, x1 = 0, x2 = 0;
+	cout << "a*x^2 + b*x + c = 0" << endl;
 
-	int n1, n2, n3;
+	cout << "a = "; cin >> a;
+	cout << "b = "; cin >> b;
+	cout << "c = "; cin >> c;
 
-	cout << "n1 = ";
-	cin >> n1;
+	d = pow(b, 2) - 4 * a * c;
+	cout << "d = " << d << endl;
 
-	cout << "n2 = ";
-	cin >> n2;
-
-	cout << "n3 = ";
-	cin >> n3;
-
-	// #1
-	if(n1 % 2 == 0) cout << n1 << endl;
-	if(n2 % 2 == 0) cout << n2 << endl;
-	if(n3 % 2 == 0) cout << n3 << endl;
-	if (n1 % 2 == 1 && n2 % 2 == 1 && n3 % 2 == 1)
-		cout << "все нечет" << endl;
-
-	// #2
-	int n = 0;
-	if (n1 % 2 == 0)
+	if (d > 0)
 	{
-		cout << n1 << endl;
-		n++;
+		x1 = (-b - sqrt(d)) / (2 * a);
+		x2 = (-b + sqrt(d)) / (2 * a);
+
+		cout << "x1 = " << x1 << endl;
+		cout << "x2 = " << x2 << endl;
 	}
-	if (n2 % 2 == 0)
-	{
-		cout << n2 << endl;
-		n++;
-	}
-	if (n3 % 2 == 0)
-	{
-		cout << n3 << endl;
-		n++;
-	}
-	if(n == 0) cout << "все нечет" << endl;
+	else
+		if (d == 0)
+		{
+			x1 = -b / (2 * a);
+			cout << "x = " << x1 << endl;
+		}
+		else
+			cout << "no solution" << endl;
 
 	return 0;
 }
