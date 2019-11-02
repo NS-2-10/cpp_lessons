@@ -1,34 +1,48 @@
 ﻿#include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include <cmath>
 using namespace std;
 
-// решаем пример с картинки
-// a*x^2 + b*x + c = 0
+// навигационная система
 
 int main()
 {
-	float a, b, c, d = 0, x1 = 0, x2 = 0;
+	setlocale(LC_ALL, "RUS");
+	srand(time(NULL));
+	float x = 0, y = 0, r = 0;
 
-	cout << "a = "; cin >> a;
-	cout << "b = "; cin >> b;
-	cout << "c = "; cin >> c;
+	r = rand() % 10 + 1; // 1..10
+	cout << "Радиус опасности звезды: " << r << endl;
 
-	d = pow(b, 2) - 4 * a * c;
-	cout << "d = " << d << endl;
-	
-	if (d > 0)
+	y = rand() % 201 - 100; // -100..0..100
+	cout << "Вертикальная координата: " << y << endl;
+
+	x = rand() % 201 - 100; // -100..0..100
+	cout << "Горизонтальная координата: " << x << endl;
+
+	if(pow(r, 2) < pow(x, 2) + pow(y, 2)) 
+		cout << "Вы на безопасном расстоянии от звезды" << endl;
+	else
 	{
-		x1 = (-b - sqrt(d)) / (2 * a);
-		x2 = (-b + sqrt(d)) / (2 * a);
+		cout << "К сожалению, вы потерпели крушение" << endl;
+		return 0;
+	}
 
-		cout << "x1 = " << x1 << endl;
-		cout << "x2 = " << x2 << endl;
-	}
-	if (d == 0)
-	{
-		x1 = -b / (2 * a);
-		cout << "x1 = " << x1 << endl;
-	}
-	if (d < 0) cout << "no solution" << endl;
+	if(x > 0 && y > 0)
+		cout << "Ваше направление: Меркурий++" << endl;
+
+	if(x < 0 && y > 0)
+		cout << "Ваше направление: Венера-+" << endl;
+
+	if(x < 0 && y < 0)
+		cout << "Ваше направление: Земля--" << endl;
+
+	if(x > 0 && y < 0)
+		cout << "Ваше направление: Нептун+-" << endl;
+
+	if ((x < 0 && y > 0) || (x > 0 && y > 0))
+		cout << "Вы приближаетесь к звезде. Уменьшите скорость ракеты." << endl;
+
 	return 0;
 }
