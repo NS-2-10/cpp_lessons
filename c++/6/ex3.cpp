@@ -8,7 +8,6 @@ using namespace std;
 int main()
 {
 	float a, b, c, d = 0, x1 = 0, x2 = 0;
-	cout << "a*x^2 + b*x + c = 0" << endl;
 
 	cout << "a = "; cin >> a;
 	cout << "b = "; cin >> b;
@@ -16,7 +15,7 @@ int main()
 
 	d = pow(b, 2) - 4 * a * c;
 	cout << "d = " << d << endl;
-
+	
 	if (d > 0)
 	{
 		x1 = (-b - sqrt(d)) / (2 * a);
@@ -25,14 +24,11 @@ int main()
 		cout << "x1 = " << x1 << endl;
 		cout << "x2 = " << x2 << endl;
 	}
-	else
-		if (d == 0)
-		{
-			x1 = -b / (2 * a);
-			cout << "x = " << x1 << endl;
-		}
-		else
-			cout << "no solution" << endl;
-
+	if (d == 0)
+	{
+		x1 = -b / (2 * a);
+		cout << "x1 = " << x1 << endl;
+	}
+	if (d < 0) cout << "no solution" << endl;
 	return 0;
 }

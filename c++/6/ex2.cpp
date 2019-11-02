@@ -6,29 +6,21 @@ using namespace std;
 
 int main()
 {
-	setlocale(LC_ALL, "RUS");
+	float c, v;
 
-	float misha = 0, nikita = 0;
+	cout << "c = "; cin >> c;
+	cout << "v = "; cin >> v;
 
-	cout << "a = ";
-	cin >> misha;
+	cout << "c + v = " << c + v << endl;
+	cout << "c * v = " << c * v << endl;
+	cout << "c - v = " << c - v << endl;
+	cout << "v - c = " << v - c << endl;
 
-	cout << "b = ";
-	cin >> nikita;
+	if (c == 0) cout << "v / c = no solution" << endl;
+	else cout << "v / c = " << v / c << endl;
 
-	cout << "a + b = " << misha + nikita << endl;
-	cout << "a - b = " << misha - nikita << endl;
-	cout << "b - a = " << nikita - misha << endl;
-	cout << "a * b = " << misha * nikita << endl;
-	if (misha == 0)
-		cout << "a = 0, делить b на 0 не круто" << endl;
-	else
-		cout << "b / a = " << nikita / misha << endl;
-
-	if (nikita == 0)
-		cout << "b = 0, делить a на 0 не круто" << endl;
-	else
-		cout << "a / b = " << misha / nikita << endl;
+	if (v == 0) cout << "c / v = no solution" << endl;
+	else cout << "c / v = " << c / v << endl;
 
 	return 0;
 }

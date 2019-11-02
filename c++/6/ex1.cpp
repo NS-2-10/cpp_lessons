@@ -1,27 +1,27 @@
 ﻿#include <iostream>
 using namespace std;
-//std::cin >> a;
-//void main() - без return 0;
 
-int main ()
+// a < b, a > b, a == b
+
+int main()
 {
 	setlocale(LC_ALL, "RUS");
 
-	float a, b;
+	int a, b;
 
-	cout << "a = ";
-	cin >> a;
+	cout << "a = "; cin >> a;
+	cout << "b = "; cin >> b;
 
-	cout << "b = ";
-	cin >> b;
-
-	if (a > b)
-		cout << "a > b" << endl;
-	else 
-		if (b > a)
-			cout << "b > a" << endl;
-		else
-			cout << "a == b" << endl;
+	//#1
+	if (a > b) cout << "a > b" << endl;
+	if (a < b) cout << "a < b" << endl;
+	if (a == b) cout << "a == b" << endl;
+	
+	//#2
+	if (a > b) cout << "a > b" << endl;
+	else
+		if (a < b) cout << "a < b" << endl;
+		else cout << "a == b" << endl;
 
 	return 0;
 }
