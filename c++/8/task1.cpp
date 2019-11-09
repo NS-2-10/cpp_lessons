@@ -1,75 +1,40 @@
 ﻿#include <iostream>
 using namespace std;
 
-int main ()
+int main()
 {
 	setlocale(LC_ALL, "RUS");
+	char color;
+	int step, i;
 
-	char color = ' ';
-	const int step = 3;
-	int i;
+	cout << "Сколько ступенек: "; 
+	cin >> step;
 
-	cout << "цвет принимает значения b/w" << endl;
-
-	cout << "*** для break ***" << endl;
-	for (i = 0; i < step; i++) 
+	for (i = 1; i <= step; i++) // for(i = 0; i < step; i++)
 	{
-		cout << "какого цвета ступенька?" << endl << "цвет: ";
+		// вводим цвет
+		cout << "Какой цвет (b|w): ";
 		cin >> color;
-
-		if (color == 'b')
+		// проверяем цвет
+		for (;;)
 		{
-			cout << "уходим" << endl;
-			break;
-		}
-		else 
-			if (color == 'w')
-				cout << "делаем шаг" << endl;
+			if (color != 'b' && color != 'w')
+			{
+				cout << "Просили же ввести нормальный цвет (b|w): ";
+				cin >> color;
+			}
 			else
-				for (;;)
-				{
-					cout << "так не бывает!" << endl;
-					cout << "какого все таки цвета ступенька?" << endl << "цвет: ";
-					cin >> color;
-					if (color == 'b' || color == 'w')
-						break;
-				}
-	}
-	if (i == step)
-		cout << "*** break победил ***" << endl;
-	else
-		cout << "*** break проиграл ***" << endl;
-
-
-	cout << "*** для continue ***" << endl;
-	for (i = 0; i < step; i++) 
-	{
-		cout << "какого цвета ступенька?" << endl << "цвет: ";
-		cin >> color;
-
+				break;
+		}
+		// смотрим на какой мы ступеньке
 		if (color == 'b')
 		{
-			cout << "прыгаем" << endl;
+			cout << "Не могу пройти это препятствие, буду прыгать!" << endl;
 			continue;
 		}
-		else 
-			if (color == 'w')
-				cout << "делаем шаг" << endl;
-			else
-				for (;;)
-				{
-					cout << "так не бывает!" << endl;
-					cout << "какого все таки цвета ступенька?" << endl << "цвет: ";
-					cin >> color;
-					if (color == 'b' || color == 'w')
-						break;
-				}
-	}
-	if (i == step)
-		cout << "*** continue победил ***" << endl;
-	else
-		cout << "*** continue проиграл ***" << endl; // никогда не случится
 
+		cout << "Сделан шаг!" << endl;
+	}
 
 	return 0;
 }

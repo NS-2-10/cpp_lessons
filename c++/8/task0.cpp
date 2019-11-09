@@ -1,30 +1,24 @@
 ﻿#include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <cmath>
 using namespace std;
 
-int main ()
+int main()
 {
-	setlocale (LC_ALL, "RUS");
-	srand (time (NULL));
+	setlocale(LC_ALL, "RUS");
+	srand(time(NULL));
 
-	const int pack = 10;
-	int creker[pack];
+	const int vagony = 6;
+	int paravozik[vagony];
 
-	cout << "*** случайные числа ***" << endl;
-	for (int i = 0; i < pack; i++)
-	{
-		creker[i] = rand () % 51; // 0...50
-		cout << creker[i] << " ";
-	}
+	// заполнение
+	for (int i = 0; i < vagony; i++)
+		paravozik[i] = rand() % 10; //0..9
+	
+	// вывод
+	for (int i = 0; i < vagony; i++)
+		cout << paravozik[i] << "\t";
 
-	cout << endl << "*** по правилу ***" << endl; 
-	for (int i = 0; i < pack; i++)
-	{
-		creker[i] = sqrt (pow (i, 2)); // i
-		cout << creker[i] << " ";
-	}
-
+	cout << endl;
 	return 0;
 }
