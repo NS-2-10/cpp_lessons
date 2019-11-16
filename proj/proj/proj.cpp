@@ -1,27 +1,26 @@
 ﻿#include <iostream>
-#include <cstdlib>
-#include <ctime>
 using namespace std;
+
+// меняем местами элементы от конца к середине массива
 
 int main()
 {
-	srand(time(NULL));
+	const int n = 5;
+	int mas[n] = { 8, 3, 0, 15, 7 }; // 7	15	0	3	8 
+	int vedro;
 
-	const int n = 4;
-	int home[n];
+	for (int i = 0; i < n / 2; i++)
+	{
+		vedro = mas[i];
+		mas[i] = mas[n - 1 - i];
+		mas[n - 1 - i] = vedro;
+	}
 
-	// in
 	for(int i = 0; i < n; i++)
-	{
-		home[i] = rand() % 10; // 0..9
-	}
-	
-	// out
-	for (int i = 0; i < n; i++)
-	{
-		cout << home[i] << "\t";
-	}
+		cout << mas[i] << "\t";
 
 	cout << endl;
 	return 0;
 }
+
+
