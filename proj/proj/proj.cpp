@@ -5,19 +5,22 @@ using namespace std;
 
 int main()
 {
-	setlocale(LC_ALL, "RUS");
 	srand(time(NULL));
 
-	const int vagony = 6;
-	int paravozik[vagony];
+	const int n = 4;
+	int home[n];
 
-	// заполнение
-	for (int i = 0; i < vagony; i++)
-		paravozik[i] = rand() % 10; //0..9
+	// in
+	for(int i = 0; i < n; i++)
+	{
+		home[i] = rand() % 10; // 0..9
+	}
 	
-	// вывод
-	for (int i = 0; i < vagony; i++)
-		cout << paravozik[i] << "\t";
+	// out
+	for (int i = 0; i < n; i++)
+	{
+		cout << home[i] << "\t";
+	}
 
 	cout << endl;
 	return 0;

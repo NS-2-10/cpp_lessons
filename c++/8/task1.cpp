@@ -1,39 +1,58 @@
 ﻿#include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main()
 {
 	setlocale(LC_ALL, "RUS");
-	char color;
-	int step, i;
+	srand(time(0));
 
-	cout << "Сколько ступенек: "; 
-	cin >> step;
+	const int all = 5;
+	int circle, rain = 0;
 
-	for (i = 1; i <= step; i++) // for(i = 0; i < step; i++)
+	// human
+	cout << "HUMAN" << endl;
+	for (circle = 1; circle <= all; circle++)
 	{
-		// вводим цвет
-		cout << "Какой цвет (b|w): ";
-		cin >> color;
-		// проверяем цвет
-		for (;;)
+		cout << "circle #" << circle << endl;
+		// is it rain?
+		rain = rand() % 2; // 1 = rain | 0 = no rain
+		if (rain == 1)
 		{
-			if (color != 'b' && color != 'w')
-			{
-				cout << "Просили же ввести нормальный цвет (b|w): ";
-				cin >> color;
-			}
-			else
-				break;
+			cout << "go to home :3" << endl;
+			break;
 		}
-		// смотрим на какой мы ступеньке
-		if (color == 'b')
+		else
 		{
-			cout << "Не могу пройти это препятствие, буду прыгать!" << endl;
+			cout << "circle #" << circle << " is compleat!" << endl << "*" << endl;
+		}
+	}
+
+	// warior
+	cout << "WARIOR" << endl;
+	for (circle = 1; circle <= all; circle++)
+	{
+		cout << "circle #" << circle << endl;
+		// is it rain?
+		rain = rand() % 2; // 1 = rain | 0 = no rain
+		if (rain == 1)
+		{
+			cout << "go to home, but to be continue :3" << endl;
 			continue;
 		}
+		else
+		{
+			cout << "circle #" << circle << " is compleat!" << endl << "*" << endl;
+		}
+	}
 
-		cout << "Сделан шаг!" << endl;
+	// immortal
+	cout << "IMMORTAL" << endl;
+	for (circle = 1; circle <= all; circle++)
+	{
+		cout << "circle #" << circle << endl;
+		cout << "circle #" << circle << " is compleat!" << endl << "*" << endl;
 	}
 
 	return 0;
