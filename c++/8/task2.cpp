@@ -1,9 +1,11 @@
 ﻿#include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include <cmath>
 using namespace std;
 
 /*
-ест 100 гр - норма, x2
+ест 2000 гр - норма, x2
 как кормит - rand()
 
 недокармливает? перекармливает? порядок?
@@ -12,25 +14,28 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "RUS");
+	srand(time(0));
 
-	const int norm = 100, days = 3, delta = 20;
-	int food_f, food_s, food[days];
+	const int total = 2000, luck = 200, days = 7, count = 2;
+	float leo[days], breakfast, dinner, yes_no;
 
 	for (int i = 0; i < days; i++)
 	{
-		cout << "День #" << i + 1 << endl;
+		breakfast = rand() % (total + 1); // 0..2000
+		dinner = rand() % (total + 1); // 0..2000
+		yes_no = rand() % 2; // 0..1
 
-		cout << "Сколько кошка съела утром: ";
-		cin >> food_f;
-
-		cout << "Сколько кошка съела вечером: ";
-		cin >> food_s;
-
-		food[i] = food_f + food_s;
-		if (abs(norm - food[i]) <= 20)
-			cout << "Вы сегодня правильно покормили кошку :3" << endl;
+		if (yes_no == 1)
+			leo[i] = breakfast + dinner + luck;
 		else
-			cout << "Вы - негодяй, кормите кошку правильно!" << endl;
+			leo[i] = breakfast + dinner;
+
+		cout << "Сегодня леопард съел " << leo[i] << " гр." << endl;
+		if (fabs(leo[i] - total) > luck)
+			cout << "Вы плохо ухаживаете за леопардом!" << endl;
+		else
+			cout << "Вы хорошо ухаживаете за леопардом!" << endl;
+		cout << "***" << endl;
 	}
 
 	return 0;
