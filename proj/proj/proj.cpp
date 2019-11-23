@@ -1,35 +1,37 @@
 ﻿#include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
-
-// меняем местами элементы от конца к середине массива
 
 int main()
 {
-	const int n = 10;
-	int cat[n], vedro = 0;
+	setlocale(LC_ALL, "rus");
 
-	// заполняем и выводим
-	for(int i = 0; i < n; i++)
+	const int n = 5;
+	int mas[n], i, min, max;
+
+	for (i = 0; i < n; i++)
 	{
-		cat[i] = i;
-		cout << cat[i] << "\t";
+		mas[i] = rand() % 15 + 1; // 1..15
+		cout << mas[i] << "\t";
 	}
 	cout << endl;
 
-	//меняем местами и выводим
-	for (int i = 0; i < n / 2; i++)
+	min = mas[0];
+	max = max[0];
+
+	for (i = 0; i < n; i++)
 	{
-		vedro = cat[i];
-		cat[i] = cat[n - 1 - i];
-		cat[n - 1 - i] = vedro;
+		if (max < mas[i])
+			max = mas[i];
+
+		if (min > mas[i])
+			min = mas[i];
 	}
 
-	for (int i = 0; i < n; i++)
-		cout << cat[i] << "\t";
-
-	cout << endl;
+	cout << "max = " << max;
+	cout << "min = " << min;
 
 	return 0;
 }
-
 

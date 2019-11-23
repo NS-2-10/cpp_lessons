@@ -1,52 +1,36 @@
-﻿//#include "pch.h"
-#include <iostream>
-// rand(); srand();
+﻿#include <iostream>
 #include <cstdlib>
-// time();
 #include <ctime>
 using namespace std;
 
-int main ()
+int main()
 {
-	setlocale (LC_ALL, "rus");
+	setlocale(LC_ALL, "rus");
 
-	const int w = 10;
-	int qwer[w], i, max, min, nax = 0, nin = 0, vedro = 0;
+	const int n = 5;
+	int mas[n], i, min, max;
 
-	srand(time(NULL));
-
-	for (i = 0; i < w; i++)
+	for (i = 0; i < n; i++)
 	{
-		qwer[i] = rand() % 21;
-		cout << qwer[i] << "\t";
+		mas[i] = rand() % 15 + 1; // 1..15
+		cout << mas[i] << "\t";
 	}
-
-	max = qwer[0];
-	min = qwer[0];
-
-	for (i = 0; i < w; i++)
-	{
-		if (max < qwer[i])
-		{
-			max = qwer[i];
-			nax = i;
-		}
-
-		if (min > qwer[i])
-		{
-			min = qwer[i];
-			nin = i;
-		}
-	}
-
-	vedro = qwer[nax];
-	qwer[nax] = qwer[nin];
-	qwer[nin] = vedro;
-
 	cout << endl;
 
-	for (i = 0; i < w; i++)
-		cout << qwer[i] << "\t";
+	min = mas[0];
+	max = max[0];
+
+	for (i = 0; i < n; i++)
+	{
+		if (max < mas[i])
+			max = mas[i];
+
+		if (min > mas[i])
+			min = mas[i];
+	}
+
+	cout << "max = " << max;
+	cout << "min = " << min;
 
 	return 0;
 }

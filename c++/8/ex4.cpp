@@ -1,26 +1,44 @@
 ﻿#include <iostream>
 using namespace std;
 
-int main ()
+// попарно меняем элементы местами
+
+int main()
 {
+	setlocale(LC_ALL, "RUS");
+
 	const int n = 8;
-	int mas[n] = {1, 0, 1, 0, 1, 0, 1, 0};
-	int i, v = 0; 
+	int i, vedro;
+	char derevo[n];
 
+	// заполнили
 	for (i = 0; i < n; i++)
-		cout << mas[i] << " ";
-
-	cout << "-> ";
-
-	for (i = 0; i < n; i += 2)
 	{
-		v = mas[i];
-		mas[i] = mas[i + 1];
-		mas[i + 1] = v;
+		cout << "Какого цвета дерево #" << i << " (z|j): ";
+		cin >> derevo[i];
 	}
 
+	// вывели
 	for (i = 0; i < n; i++)
-		cout << mas[i] << " ";
+	{
+		cout << derevo[i] << "\t";
+	}
+	cout << endl;
+
+	// меняем
+	for (i = 0; i < n; i += 2)
+	{
+		vedro = derevo[i];
+		derevo[i] = derevo[i + 1];
+		derevo[i + 1] = vedro;
+	}
+
+	// вывели
+	for (i = 0; i < n; i++)
+	{
+		cout << derevo[i] << "\t";
+	}
+	cout << endl;
 
 	return 0;
 }
