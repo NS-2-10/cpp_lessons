@@ -3,50 +3,43 @@
 #include <ctime>
 using namespace std;
 
-// пример для дз
+// как создавать двумерные массивы
+// чет * 2, нечет + 2
 
-int main ()
+int main()
 {
-	setlocale (LC_ALL, "rus");
+	setlocale(LC_ALL, "rus");
+	srand(time(0));
 
-	const int st = 5, h = 3, minimum = 3200;
-	float city[st][h], bag = 0;
+	const int n = 3, m = 6;
+	int arr[n][m], i, j;
 
-	srand(time(NULL));
-	for (int i = 0; i < st; i++)
+	for(i = 0; i < n; i++)
 	{
-		for (int j = 0; j < h; j++)
+		for (j = 0; j < m; j++)
 		{
-			// смотрим на уровень доходов
-			city[i][j] = rand() % (29 * minimum) + minimum;
-			cout << city[i][j] << "\t";
-
-			// робингудим
-			if (city[i][j] >= 20 * minimum)
-			{
-				city[i][j] -= 10 * minimum;
-				bag += 10 * minimum;
-			}
-			if (city[i][j] <= 15 * minimum)
-			{
-				city[i][j] += 3 * minimum;
-				bag -= 3 * minimum;
-			}
+			arr[i][j] = rand() % 100 + 1; // 1..100
+			cout << arr[i][j] << "\t";
 		}
 		cout << endl;
 	}
 
-	// изменили город к лучшему
-	for (int i = 0; i < st; i++)
+	cout << endl << endl;
+
+	for(i = 0; i < n; i++)
 	{
-		for (int j = 0; j < h; j++)
+		for (j = 0; j < m; j++)
 		{
-			cout << city[i][j] << "\t";
+			if (arr[i][j] % 2 == 0)
+				arr[i][j] *= 2;
+			else
+				arr[i][j] += 2;
+
+			cout << arr[i][j] << "\t";
 		}
 		cout << endl;
 	}
 
-	cout << "в нашем мешке: " << bag << endl;
-		
+	cout << endl << endl;
 	return 0;
 }
