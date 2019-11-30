@@ -7,37 +7,33 @@ int main()
 {
 	setlocale(LC_ALL, "RUS");
 
-	const int n = 8;
-	int i, vedro;
-	char derevo[n];
-
-	// заполнили
+	const int n = 12;
+	float neptun[n], vedro = 0;
+	int i;
+	
+	//заполнили
 	for (i = 0; i < n; i++)
 	{
-		cout << "Какого цвета дерево #" << i << " (z|j): ";
-		cin >> derevo[i];
+		cout << "neptun[" << i << "] = ";
+		cin >> neptun[i];
 	}
 
-	// вывели
+	// вывод
 	for (i = 0; i < n; i++)
-	{
-		cout << derevo[i] << "\t";
-	}
+		cout << neptun[i] << "\t";
 	cout << endl;
 
-	// меняем
+	// поменяли
 	for (i = 0; i < n; i += 2)
 	{
-		vedro = derevo[i];
-		derevo[i] = derevo[i + 1];
-		derevo[i + 1] = vedro;
+		vedro = neptun[i];
+		neptun[i] = neptun[i + 1];
+		neptun[i + 1] = vedro;
 	}
-
-	// вывели
+	
+	// вывод
 	for (i = 0; i < n; i++)
-	{
-		cout << derevo[i] << "\t";
-	}
+		cout << neptun[i] << "\t";
 	cout << endl;
 
 	return 0;

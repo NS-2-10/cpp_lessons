@@ -6,31 +6,33 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "rus");
+	srand(time(0));
 
-	const int n = 5;
-	int mas[n], i, min, max;
+	const int n = 14;
+	int minmax[n], i, min, max;
 
+	// заполнили и вывели
 	for (i = 0; i < n; i++)
 	{
-		mas[i] = rand() % 15 + 1; // 1..15
-		cout << mas[i] << "\t";
+		minmax[i] = rand() % 10; // 0..9
+		cout << minmax[i] << "\t";
 	}
 	cout << endl;
 
-	min = mas[0];
-	max = max[0];
-
+	// нашли
+	max = minmax[0];
+	min = minmax[0];
 	for (i = 0; i < n; i++)
 	{
-		if (max < mas[i])
-			max = mas[i];
-
-		if (min > mas[i])
-			min = mas[i];
+		if(max < minmax[i])
+			max = minmax[i];
+		
+		if (min > minmax[i])
+			min = minmax[i];
 	}
 
-	cout << "max = " << max;
-	cout << "min = " << min;
+	cout << "max = " << max << endl;
+	cout << "min = " << min << endl;
 
 	return 0;
 }
