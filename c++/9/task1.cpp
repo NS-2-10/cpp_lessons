@@ -11,35 +11,37 @@ int main()
 	setlocale(LC_ALL, "rus");
 	srand(time(0));
 
-	const int n = 3, m = 6;
-	int arr[n][m], i, j;
-
-	for(i = 0; i < n; i++)
+	// создали массив
+	const int n = 6, m = 3;
+	int town[n][m], i, j;
+	
+	// заполнили и вывели
+	for (i = 0; i < n; i++) // для улиц
 	{
-		for (j = 0; j < m; j++)
+		for (j = 0; j < m; j++) // для домов
 		{
-			arr[i][j] = rand() % 100 + 1; // 1..100
-			cout << arr[i][j] << "\t";
+			town[i][j] = rand() % 5 + 1; // 1..5
+			cout << town[i][j] << "\t";
 		}
-		cout << endl;
+		cout << endl; // таблица
 	}
 
-	cout << endl << endl;
+	cout << endl << endl; // отступ
 
-	for(i = 0; i < n; i++)
+	// поменяли значения
+	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < m; j++)
 		{
-			if (arr[i][j] % 2 == 0)
-				arr[i][j] *= 2;
+			if (town[i][j] % 2 == 0) // если четное
+				town[i][j] *= 2;
 			else
-				arr[i][j] += 2;
+				town[i][j] += 2;
 
-			cout << arr[i][j] << "\t";
+			cout << town[i][j] << "\t";
 		}
 		cout << endl;
 	}
 
-	cout << endl << endl;
 	return 0;
 }

@@ -38,7 +38,3 @@ int main()
 
 	return 0;
 }
-
-// c = a;
-// a = b;
-// b = c;
