@@ -1,62 +1,106 @@
 ﻿#include <iostream>
-#include <cmath>
+#include <cstdlib>
 using namespace std;
 
-// найти минимум и строку, где он есть, поменять с последним
+/*
+#1					#2					#3					#4
+0					0	0	0	0					0		0	0	0	0
+0	0				0	0	0					0	0			0	0	0
+0	0	0			0	0					0	0	0				0	0
+0	0	0	0		0					0	0	0	0					0
+*/
 
 int main()
 {
-	setlocale(LC_ALL, "rus");
 
-	const int n = 4;
-	float c[n][n], vedro = 0, min;
-	int i, j, num;
+	const int n = 6;
+	int grisha[n][n], i, j;
 
+	//******************************************************
+
+	cout << "#4" << endl;
+	// in
 	for (i = 0; i < n; i++)
 	{
-		for (j = 0; j < n; j++)
+		for (j = i; j < n; j++)
 		{
-			c[i][j] = pow(i, j);
-			cout << c[i][j] << "\t";
+			grisha[i][j] = 4;
+		}
+	}
+	// out
+	for (i = 0; i < n; i++)
+	{
+		for (j = i; j < n; j++)
+		{
+			cout << grisha[i][j] << " ";
 		}
 		cout << endl;
 	}
-	
-	min = c[0][0];
-	for (i = 0; i < n; i++)
+
+	//******************************************************
+
+	cout << "#3" << endl;
+	// in
+	for (i = n - 1; i >= 0; i--)
 	{
-		for (j = 0; j < n; j++)
+		for (j = n - 1; j >= i; j--)
 		{
-			if (min > c[i][j])
-			{
-				min = c[i][j];
-				num = i;
-			}
+			grisha[i][j] = 3;
 		}
 	}
-
-	if (num == n - 1)
+	// out
+	for (i = n - 1; i >= 0; i--)
 	{
-		cout << "no changes" << endl;
-		return 0;
-	}
-
-	for (j = 0; j < n; j++)
-	{
-		vedro = c[num][j];
-		c[num][j] = c[n - 1][j];
-		c[n - 1][j] = vedro;
-	}
-
-	cout << endl << endl;
-	for (i = 0; i < n; i++)
-	{
-		for (j = 0; j < n; j++)
+		for (j = n - 1; j >= i; j--)
 		{
-			cout << c[i][j] << "\t";
+			cout << grisha[i][j] << " ";
 		}
 		cout << endl;
 	}
+
+	//******************************************************
+
+	cout << "#2" << endl;
+	// in
+	for (i = 0; i < n; i++)
+	{
+		for (j = n - 1; j >=i; j--)
+		{
+			grisha[i][j] = 2;
+		}
+	}
+	// out
+	for (i = 0; i < n; i++)
+	{
+		for (j = n - 1; j >= i; j--)
+		{
+			cout << grisha[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	//******************************************************
+
+	cout << "#1" << endl;
+	// in
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j <= i; j++)
+		{
+			grisha[i][j] = 1;
+		}
+	}
+	// out
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j <= i; j++)
+		{
+			cout << grisha[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	//******************************************************
 
 	return 0;
 }

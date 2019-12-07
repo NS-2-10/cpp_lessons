@@ -10,62 +10,97 @@ using namespace std;
 0	0	0	0		0					0	0	0	0					0
 */
 
-int main ()
+int main()
 {
-	const int n = 4;
-	char c[n][n], i, j;
 
-	cout << "\ntask #1" << endl;
+	const int n = 6;
+	int grisha[n][n], i, j;
+
+	//******************************************************
+
+	cout << "#4" << endl;
+	// in
+	for (i = 0; i < n; i++)
+	{
+		for (j = i; j < n; j++)
+		{
+			grisha[i][j] = 4;
+		}
+	}
+	// out
+	for (i = 0; i < n; i++)
+	{
+		for (j = i; j < n; j++)
+		{
+			cout << grisha[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	//******************************************************
+
+	cout << "#3" << endl;
+	// in
+	for (i = n - 1; i >= 0; i--)
+	{
+		for (j = n - 1; j >= i; j--)
+		{
+			grisha[i][j] = 3;
+		}
+	}
+	// out
+	for (i = n - 1; i >= 0; i--)
+	{
+		for (j = n - 1; j >= i; j--)
+		{
+			cout << grisha[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	//******************************************************
+
+	cout << "#2" << endl;
+	// in
+	for (i = 0; i < n; i++)
+	{
+		for (j = n - 1; j >=i; j--)
+		{
+			grisha[i][j] = 2;
+		}
+	}
+	// out
+	for (i = 0; i < n; i++)
+	{
+		for (j = n - 1; j >= i; j--)
+		{
+			cout << grisha[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	//******************************************************
+
+	cout << "#1" << endl;
+	// in
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j <= i; j++)
 		{
-			c[i][j] = 'x';
-			cout << c[i][j] << " ";
+			grisha[i][j] = 1;
 		}
-		cout << endl;
 	}
-
-	cout << "\ntask #2" << endl;
+	// out
 	for (i = 0; i < n; i++)
 	{
-		for (j = 0; j <= n - 1 - i; j++)
+		for (j = 0; j <= i; j++)
 		{
-			c[i][j] = 'z';
-			cout << c[i][j] << " ";
+			cout << grisha[i][j] << " ";
 		}
 		cout << endl;
 	}
 
-	cout << "\ntask #3" << endl;
-	for (i = 0; i < n; i++)
-	{
-		for (j = 0; j < n; j++)
-		{
-			if (j >= n - 1 - i)
-				c[i][j] = 'y';
-			else 
-				c[i][j] = ' ';
-
-			cout << c[i][j] << " ";
-		}
-		cout << endl;
-	}
-
-	cout << "\ntask #4" << endl;
-	for (i = 0; i < n; i++)
-	{
-		for (j = 0; j < n; j++)
-		{
-			if (j >= i)
-				c[i][j] = 'h';
-			else 
-				c[i][j] = ' ';
-
-			cout << c[i][j] << " ";
-		}
-		cout << endl;
-	}
+	//******************************************************
 
 	return 0;
 }
