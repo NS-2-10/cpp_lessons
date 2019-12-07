@@ -1,41 +1,41 @@
 ﻿#include <iostream>
-#include <cstdlib>
-#include <ctime>
 using namespace std;
 
-// пример для домашки
-// если меньше 2 - то посадить 5; больше 6 - посадить 5
-
-int main ()
+int main()
 {
-	setlocale (LC_ALL, "rus");
+	setlocale(LC_ALL, "RUS");
 
-	const int p = 2, v = 8, min = 2, max = 6, cap = 8, norm = 5;
-	int st[p][v], i, j;
+	const int side = 6;
+	int i, j;
+	char secret[side][side] = { {'п','*','#','?','!',' '},
+								{' ','р','о','.','ж',','},
+								{'ж','г','и','и','з','д'},
+								{'а','б','р','в','в','г'},
+								{'с','о','р','т','е','о'},
+								{'к','в','л','м','п','т'} };
 
-	// заполнили, вывели, сравнили, поменяли
-	srand (time(NULL));
-	for (i = 0; i < p; i++)
+	cout << "наш секрет: " << endl;
+	for (i = 0; i < side; i++)
 	{
-		for (j = 0; j < v; j++)
+		for (j = 0; j < side; j++)
 		{
-			st[i][j] = rand() % cap + 1;
-			cout << st[i][j] << " ";
-
-			if (st[i][j] <= min || st[i][j] >= max)
-				st[i][j] = norm;
+			cout << secret[i][j];
 		}
 		cout << endl;
 	}
+	cout << endl;
 
-	cout << "**************" << endl;
-	for (i = 0; i < p; i++)
+	cout << "наше послание: " << endl;
+	for (i = 0; i < side; i++)
 	{
-		for (j = 0; j < v; j++)
-			cout << st[i][j] << " ";
-		cout << endl;
+		cout << secret[i][i];
+	}
+	for (i = 0; i < side; i++)
+	{
+		cout << secret[i][side - 1 - i];
 	}
 
+	cout << endl;
 	return 0;
 }
 
