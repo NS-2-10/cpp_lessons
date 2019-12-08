@@ -1,64 +1,53 @@
 ﻿#include <iostream>
 #include <cstdlib>
+#include <ctime>
 using namespace std;
 
-/*
-#1					#2					
-0					0	0	0	0		
-0	0				0	0	0				
-0	0	0			0	0					
-0	0	0	0		0					
-*/
+// *** вокзальная касса ***
+// количество поездов заранее не известно, получаем рандомно
+// значение вагона - количество пассажиров. максимальное количество - 40 человек
+// стоимость биллетов 600 грн
 
 int main()
 {
+	setlocale(LC_ALL, "rus");
+	srand(time(NULL));
 
-	const int n = 6;
-	int grisha[n][n], i, j;
+	const int ticket = 600, normal = 20000;
+	int** station = NULL;
+	int trains, cabs, i, j, money = 0;
 
-	//******************************************************
+	trains = rand() % 10 + 1; // 1..10
+	cabs = rand() % 20 + 1;
 
-	cout << "#2" << endl;
-	// in
-	for (i = 0; i < n; i++)
+	station = new int* [trains];
+	for (i = 0; i < trains; i++)
 	{
-		for (j = 0; j <= n - 1 - i; j++)
-		{
-			grisha[i][j] = 2;
-		}
-	}
-	// out
-	for (i = 0; i < n; i++)
-	{
-		for (j = 0; j <= n - 1 - i; j++)
-		{
-			cout << grisha[i][j] << " ";
-		}
-		cout << endl;
+		station[i] = new int[cabs];
 	}
 
-	//******************************************************
+	for (i = 0; i < trains; i++)
+	{
+		for (j = 0; j < cabs; j++)
+		{
+			station[i][j] = rand() % 41; //0..40
+			cout << station[i][j] << "\t";
 
-	cout << "#1" << endl;
-	// in
-	for (i = 0; i < n; i++)
-	{
-		for (j = 0; j <= i; j++)
-		{
-			grisha[i][j] = 1;
-		}
-	}
-	// out
-	for (i = 0; i < n; i++)
-	{
-		for (j = 0; j <= i; j++)
-		{
-			cout << grisha[i][j] << " ";
+			money += station[i][j] * ticket;
 		}
 		cout << endl;
 	}
 
-	//******************************************************
+	cout << "money = " << money << endl;
+	if (money >= normal)
+		cout << "great result!" << endl;
+	else
+		cout << "bad result!" << endl;
+
+	for (i = 0; i < trains; i++)
+		delete[] station[i];
+
+	delete station;
 
 	return 0;
 }

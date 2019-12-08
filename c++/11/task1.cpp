@@ -3,35 +3,39 @@
 #include <ctime>
 using namespace std;
 
-int main ()
+int main()
 {
-	int i;
-	int n = 0;
-	int *mas = NULL;
+	setlocale(LC_ALL, "rus");
+	srand(time(0));
 
-	srand (time (NULL));
-	n = rand () % 10 + 1; // 1...10
-	mas = new int[n];
+	int n;
+	n = rand() % 10 + 6; // 6..15
+	cout << "n = " << n << endl;
 
-	for (i = 0; i < n; i++)
+	int* maxim = NULL; // создали указатель
+	maxim = new int[n]; // выделили память
+	for (int i = 0; i < n; i++)
 	{
-		mas[i] = rand () % 10; //0...9
-		cout << mas[i] << "\t"; 
+		maxim[i] = rand() % 11 + 20; // 20..30
+		cout << maxim[i] << " ";
 	}
 
-	delete mas;
+	cout << endl << "четные элементы: ";
+	for (int i = 0; i < n; i++)
+	{
+		if (maxim[i] % 2 == 0)
+			cout << maxim[i] << " ";
+	}
 
+	cout << endl << "нечетные элементы: ";
+	for (int i = 0; i < n; i++)
+	{
+		if (maxim[i] % 2 == 1)
+			cout << maxim[i] << " ";
+	}
+
+	cout << endl;
+	delete maxim;
 	return 0;
 }
 
-/*
- дз
-
- 0 9 8 7 6 - из динамического в главную диагональ двумерного
-
- 0 0 0 0 0
- 0 9 0 0 0
- 0 0 8 0 0
- 0 0 0 7 0
- 0 0 0 0 6
-*/

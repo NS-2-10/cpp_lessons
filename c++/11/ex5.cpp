@@ -9,7 +9,7 @@ int main ()
 
 	int **A;
     int i, j;
-
+    
     A = new int*[SIZE];
 
     for (i = 0; i < SIZE; i++)
