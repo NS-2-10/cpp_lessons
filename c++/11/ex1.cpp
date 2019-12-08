@@ -13,7 +13,7 @@ int main()
 
 	const int maxNumber = 100;
 	const int minNumber = 1;
-	int *p = NULL;
+	int* p = NULL;
 	int i, size;
 
 	do

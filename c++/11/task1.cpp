@@ -5,37 +5,41 @@ using namespace std;
 
 int main()
 {
-	setlocale(LC_ALL, "rus");
+	// time(0) -> srand() -> rand()
 	srand(time(0));
 
-	int n;
-	n = rand() % 10 + 6; // 6..15
-	cout << "n = " << n << endl;
+	int* all = NULL;
+	int i, g;
 
-	int* maxim = NULL; // создали указатель
-	maxim = new int[n]; // выделили память
-	for (int i = 0; i < n; i++)
+	cout << "g = ";
+	cin >> g;
+
+	all = new int[g]; // создали
+
+	cout << "all: " << endl;
+	for (i = 0; i < g; i++)
 	{
-		maxim[i] = rand() % 11 + 20; // 20..30
-		cout << maxim[i] << " ";
+		all[i] = rand() % 100 + 1; // 1..100
+		cout << all[i] << "\t";
 	}
 
-	cout << endl << "четные элементы: ";
-	for (int i = 0; i < n; i++)
+	cout << endl << "== 1: " << endl;
+	for (i = 0; i < g; i++)
 	{
-		if (maxim[i] % 2 == 0)
-			cout << maxim[i] << " ";
+		if (all[i] % 2 == 1)
+			cout << all[i] << "\t";
 	}
 
-	cout << endl << "нечетные элементы: ";
-	for (int i = 0; i < n; i++)
+	cout << endl << "== 0: " << endl;
+	for (i = 0; i < g; i++)
 	{
-		if (maxim[i] % 2 == 1)
-			cout << maxim[i] << " ";
+		if (all[i] % 2 == 0)
+			cout << all[i] << "\t";
 	}
 
 	cout << endl;
-	delete maxim;
+
+	delete all;
 	return 0;
 }
 

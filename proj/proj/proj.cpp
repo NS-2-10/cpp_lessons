@@ -18,7 +18,7 @@ int main()
 	int trains, cabs, i, j, money = 0;
 
 	trains = rand() % 10 + 1; // 1..10
-	cabs = rand() % 20 + 1;
+	cabs = rand() % 20 + 1; // 1..20
 
 	station = new int* [trains];
 	for (i = 0; i < trains; i++)
