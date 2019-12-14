@@ -6,24 +6,24 @@ using namespace std;
 
 int main()
 {
-	struct football_stadium {
-		string first_game;
-		int capacity;
-		string teams[2];
+	struct universe {
+		string planet[8];
+		string sun;
+		int beings;
 	};
 
-	football_stadium campnow;
+	universe my;
 
-	cout << "first game: ";
-	cin >> campnow.first_game;
+	cout << "name of sun: ";
+	cin >> my.sun;
 
-	cout << "capacity: ";
-	cin >> campnow.capacity;
+	cout << "count of beings: ";
+	cin >> my.beings;
 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 8; i++)
 	{
-		cout << "team#" << i + 1 << ": ";
-		cin >> campnow.teams[i];
+		cout << "name of planet#" << i + 1 << ": ";
+		cin >> my.planet[i];
 	}
 
 	return 0;

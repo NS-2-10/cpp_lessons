@@ -9,22 +9,24 @@ int main()
 
 	const int lessons = 5;
 	int rate[lessons];
-	float sum = 0, avr = 0;
+	float avr = 0, sum = 0; // могут быть дробные значение
 
 	for (int i = 0; i < lessons; i++)
 	{
-		for (; ; )
+		for (; ; ) // бесконечный цикл
 		{
-			cout << "введите оценку №" << i + 1 << ": ";
+			cout << "rate#" << i + 1 << ": ";
 			cin >> rate[i];
-			if (rate[i] >= 2 && rate[i] <=12) // !
+
+			// проверяем, чтобы введенное значение было в интервале 1..12
+			if (rate[i] >= 1 && rate[i] <= 12)
 				break;
 			else
-				cout << "проверьте введенное значение!" << endl;
+				cout << "error!" << endl;
 		}
-		sum += rate[i];
+		sum += rate[i]; // находим сумму оценок
 	}
-
+	
 	avr = sum / lessons;
 	int round = sum / lessons;
 
@@ -33,7 +35,7 @@ int main()
 	else
 		avr = round + 1;
 
-	cout << endl << "средний балл табеля: " << avr << endl;
+	cout << "avr rate = " << avr << endl;
 
 	return 0;
 }

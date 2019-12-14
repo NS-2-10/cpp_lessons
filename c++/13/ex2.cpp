@@ -2,48 +2,29 @@
 #include <cstdlib>
 using namespace std;
 
-struct date
-{
-	int day;
-	string month;
-	int year;
-};
-
-struct persone
-{
-	string firstname;
-	string lastname;
-	struct date bd;
-};
-
-/*persone ->
- * 			firstname
- * 			lastname
- * 			bd ->
- * 				 day
- * 				 month
- * 				 year
- */
+// структура
 
 int main()
 {
-	setlocale(LC_ALL, "RUS");
+	struct universe {
+		string planet[8];
+		string sun;
+		int beings;
+	};
 
-	// 1cat, кот, cat cat - нельзя
-	struct persone p;
-	// struct persone d; // cin >> d.firstname;
-	cout << "Введите имя: ";
-	cin >> p.firstname;
-	cout << "Введите фамилию: ";
-	cin >> p.lastname;
-	cout << "\nВведите дату рождения\nЧисло: ";
-	cin >> p.bd.day;
-	cout << "Месяц: ";
-	cin >> p.bd.month;
-	cout << "Год: ";
-	cin >> p.bd.year;
-	cout << "\nВы ввели: " << p.firstname << " " << p.lastname << ", дата рождения "
-		<< p.bd.day << " " << p.bd.month << " " << p.bd.year << " года." << endl;
+	universe my;
+
+	cout << "name of sun: ";
+	cin >> my.sun;
+
+	cout << "count of beings: ";
+	cin >> my.beings;
+
+	for (int i = 0; i < 8; i++)
+	{
+		cout << "name of planet#" << i + 1 << ": ";
+		cin >> my.planet[i];
+	}
 
 	return 0;
 }
