@@ -4,36 +4,27 @@ using namespace std;
 
 // структура
 
-int main ()
+int main()
 {
-	struct meal
+	struct football_stadium {
+		string first_game;
+		int capacity;
+		string teams[2];
+	};
+
+	football_stadium campnow;
+
+	cout << "first game: ";
+	cin >> campnow.first_game;
+
+	cout << "capacity: ";
+	cin >> campnow.capacity;
+
+	for (int i = 0; i < 2; i++)
 	{
-		string base;
-		string salad[4][2];
-		int ccal;
-		};
-		
-	struct meal diner;
-	
-	setlocale (LC_ALL, "RUS");
-	cout << "Что будете кушать?" << endl;
-	cout << "Основное блюдо: ";
-	cin >> diner.base;
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 2; j += 2)
-		{
-			cout << "Игредиент №" << i + 1 << ": ";
-			cin >> diner.salad[i][j];
-			cout << "Количество игредиента №" << i + 1 << ": ";
-			cin >> diner.salad[i][j + 1];
-			}
-		}	
-	/*помидоры 2
-	 *огурцы   3 
-	 */ 
-	cout << "Ожидаемая энергетическая ценность: ";
-	cin >> diner.ccal;
+		cout << "team#" << i + 1 << ": ";
+		cin >> campnow.teams[i];
+	}
 
 	return 0;
 }
