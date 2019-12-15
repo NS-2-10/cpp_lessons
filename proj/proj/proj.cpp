@@ -3,75 +3,99 @@
 #include <ctime>
 using namespace std;
 
+int eagle(int& cube)
+{
+	cout << "Тебе повезло! Орел перенес тебя на 2 хода вперед" << endl;
+	return cube += 2;
+}
+
+int poison(int& cube)
+{
+	cout << "Ты встретил старого друида. Выпей зелье, но повезет ли тебе?" << endl;
+	int luck = rand() % 2;
+	if (luck == 0)
+	{
+		cout << "Не повезло :( Идешь медленнее на 1 ход" << endl;
+		cube += rand() % 6;
+		if (cube > 6)
+			cube = 6;
+		return cube;
+	}
+	else
+	{
+		cout << "Повезло :) Переходишь на 1 ход вперед" << endl;
+		return cube++;
+	}
+}
+
+void death()
+{
+	cout << "Ты случайно взорвался :( Конец игры!" << endl;
+}
+
+void finish()
+{
+	cout << "Победа :) Забирай печеньку!" << endl;
+}
+
 int main()
 {
 	setlocale(LC_ALL, "rus");
 	srand(time(0));
 
-	int cube = rand() % 6 + 1; // 1..6
-	cout << "Ваш первый ход: " << cube << endl;
+	int cube = rand() % 6 + 1; //1..6
+	cout << "Твой первый ход: " << cube << endl;
+
 	while (cube < 6)
 	{
 		switch (cube)
 		{
 			case 1:
 			{
-				cout << "Вы упали в яму. Игра окончена! :(" << endl;
-				return 0;
+				eagle(cube);
+				cout << "Твой ход: " << cube << endl;
+				break;
 			}
 			case 2:
 			{
-				cout << "Вам повезло! Механический дракон переносит вас на 2 хода вперед!" << endl;
-				cube += 2;
-				cout << "Ваш ход: " << cube << endl;
-				break;
+				death();
+				return 0;
 			}
 			case 3:
 			{
-				cube = rand() % 6 + 1;
-				cout << "Ваш ход: " << cube << endl;
+				poison(cube);
+				cout << "Твой ход: " << cube << endl;
 				break;
 			}
 			case 4:
 			{
-				cout << "Вы встретили сильного противника! Узнаем, сможетели вы его победить?" << endl;
-				int win = rand() % 2;
-				if (win == 0)
+				cout << "Ты нашел самолет, но полетит он или взорвется?" << endl;
+				int luck = rand() % 2;
+				if (luck == 0)
 				{
-					cube--;
-					cout << "Вы не смогли одержать победу :( Возвращаетесь на 1 ход назад" << endl;
-				}
-				else
-				{
-					cube++;
-					cout << "Вы смогли одержать победу :) Продвигаетесь на 1 ход вперед" << endl;
-				}
-				break;
-			}
-			case 5:
-			{
-				cout << "Ответ решит все: что растет, но нет корня?" << endl
-					<< "0 - редька" << endl << "1 - человек" << endl
-					<< "Ваш выбор: ";
-				int choice;
-				cin >> choice;
-				if (choice == 0)
-				{
-					cout << "Вы проиграли! Вас съел сфинкс :(" << endl;
+					cout << "Взорвался :( Конец игры!" << endl;
 					return 0;
 				}
 				else
 				{
-					cout << "Вы пробедили! Сфинкс погиб" << endl;
-					cube++;
+					cout << "Полетел :)" << endl;
+					cube += 2;
 				}
+				cout << "Твой ход: " << cube << endl;
+				break;
+			}
+			case 5:
+			{
+				cout << "Вражеская пружина откинула тебя на 2 хода назад" << endl;
+				cube -= 2;
+				cout << "Твой ход: " << cube << endl;
 				break;
 			}
 		}
-	}	
+	}
 
 	if (cube == 6)
-		cout << "Победа! :)" << endl;
+		finish();
 
 	return 0;
 }

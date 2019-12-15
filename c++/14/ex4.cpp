@@ -1,35 +1,101 @@
 ﻿#include <iostream>
 #include <cstdlib>
+#include <ctime>
 using namespace std;
 
-struct book
+int eagle(int& cube)
 {
- string title;
- string author;
- int value;
-};
+	cout << "Тебе повезло! Орел перенес тебя на 2 хода вперед" << endl;
+	return cube += 2;
+}
 
-int main ()
+int poison(int& cube)
 {
-  struct book *lib; // struct book lib[3];
-  int i;
-  lib = new book[3];
-  for(i = 0; i < 3; i++)
-  {
-    cout << "Введите название " << i + 1 << " книги: ";
-    cin >> (lib+i)->title; //cin >> lib[i].title;
-    cout << "Введите автора " << i + 1 << " книги: ";
-    cin >> (lib+i)->author; //cin >> lib[i].author;
-    cout << "Введите цену " << i + 1 << " книги: ";
-    cin >> (lib+i)->value; //cin >> lib[i].value;
-  }
-  cout << endl;
-  for(i = 0; i < 3; i++)
-  {
-    cout << "#" << i+1 << ". " << (lib+i)->author << " " << (lib+i)->title << " " << (lib+i)->value << endl;
-  }
+	cout << "Ты встретил старого друида. Выпей зелье, но повезет ли тебе?" << endl;
+	int luck = rand() % 2;
+	if (luck == 0)
+	{
+		cout << "Не повезло :( Идешь медленнее на 1 ход" << endl;
+		cube += rand() % 6;
+		if (cube > 6)
+			cube = 6;
+		return cube;
+	}
+	else
+	{
+		cout << "Повезло :) Переходишь на 1 ход вперед" << endl;
+		return cube++;
+	}
+}
 
-  delete lib;
-	
-  return 0;
+void death()
+{
+	cout << "Ты случайно взорвался :( Конец игры!" << endl;
+}
+
+void finish()
+{
+	cout << "Победа :) Забирай печеньку!" << endl;
+}
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	srand(time(0));
+
+	int cube = rand() % 6 + 1; //1..6
+	cout << "Твой первый ход: " << cube << endl;
+
+	while (cube < 6)
+	{
+		switch (cube)
+		{
+			case 1:
+			{
+				eagle(cube);
+				cout << "Твой ход: " << cube << endl;
+				break;
+			}
+			case 2:
+			{
+				death();
+				return 0;
+			}
+			case 3:
+			{
+				poison(cube);
+				cout << "Твой ход: " << cube << endl;
+				break;
+			}
+			case 4:
+			{
+				cout << "Ты нашел самолет, но полетит он или взорвется?" << endl;
+				int luck = rand() % 2;
+				if (luck == 0)
+				{
+					cout << "Взорвался :( Конец игры!" << endl;
+					return 0;
+				}
+				else
+				{
+					cout << "Полетел :)" << endl;
+					cube += 2;
+				}
+				cout << "Твой ход: " << cube << endl;
+				break;
+			}
+			case 5:
+			{
+				cout << "Вражеская пружина откинула тебя на 2 хода назад" << endl;
+				cube -= 2;
+				cout << "Твой ход: " << cube << endl;
+				break;
+			}
+		}
+	}
+
+	if (cube == 6)
+		finish();
+
+	return 0;
 }
